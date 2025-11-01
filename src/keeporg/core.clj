@@ -4,6 +4,7 @@
    [clojure.java.io :as io]
    [clojure.string :as s]
    [clojure.tools.cli :refer [parse-opts]]
+   [clojure.pprint :as pp]
    [cheshire.core :as json]
    [java-time.api :as jt]
    [camel-snake-kebab.core :as csk]))
@@ -176,7 +177,7 @@
        (remove nil?)
        (map (fn [note]
               (when (> (verbosity) 0)
-                (pprint (:keep-note note)))
+                (pp/pprint (:keep-note note)))
               note))))
 
 (defn- usage [summary errors]
