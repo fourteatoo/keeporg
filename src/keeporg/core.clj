@@ -53,6 +53,11 @@
    (GZIPInputStream.
     (io/input-stream file))))
 
+(defmethod archive-input-stream "zip"
+  [file]
+  (ZipArchiveInputStream.
+   (io/input-stream file)))
+
 (defn json-entry? [entry]
   (and (not (.isDirectory entry))
        (= "json" (file-suffix entry))))
