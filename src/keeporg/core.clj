@@ -193,7 +193,7 @@
   (System/exit -1))
 
 (def ^:private cli-options
-  [["-m" "--output-markdown" "output Markdown files instead of Emacs org"]
+  [["-m" "--markdown" "output Markdown files instead of Emacs org"]
    ["-s" "--split" "write notes each in its own file"]
    ["-v" "--verbose" "increase logging verbosity"
     :default 0
