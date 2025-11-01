@@ -185,7 +185,7 @@
               note))))
 
 (defn- usage [summary errors]
-  (println "usage: keeporg [options ...]")
+  (println "usage: keeporg [option ...] file ...")
   (doseq [e errors]
     (println e))
   (when summary
