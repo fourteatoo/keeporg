@@ -7,7 +7,12 @@
    [clojure.pprint :as pp]
    [cheshire.core :as json]
    [java-time.api :as jt]
-   [camel-snake-kebab.core :as csk]))
+   [camel-snake-kebab.core :as csk])
+  (:import
+   [org.apache.commons.compress.archivers ArchiveEntry]
+   [org.apache.commons.compress.archivers.tar TarArchiveInputStream]
+   [org.apache.commons.compress.archivers.zip ZipArchiveInputStream]
+   [java.util.zip GZIPInputStream]))
 
 
 (def ^:dynamic *options*)
@@ -24,7 +29,7 @@
 
 
 (extend-protocol clojure.java.io/Coercions
-  org.apache.commons.compress.archivers.ArchiveEntry
+  ArchiveEntry
   (as-file [f] (io/as-file (.getName f)))
   (as-url [f] (io/as-url (.getName f))))
 
@@ -38,14 +43,14 @@
 
 (defmethod archive-input-stream "tgz"
   [file]
-  (org.apache.commons.compress.archivers.tar.TarArchiveInputStream.
-   (java.util.zip.GZIPInputStream.
+  (TarArchiveInputStream.
+   (GZIPInputStream.
     (io/input-stream file))))
 
 (defmethod archive-input-stream "tar,gz"
   [file]
-  (org.apache.commons.compress.archivers.tar.TarArchiveInputStream.
-   (java.util.zip.GZIPInputStream.
+  (TarArchiveInputStream.
+   (GZIPInputStream.
     (io/input-stream file))))
 
 (defn json-entry? [entry]
