@@ -17,6 +17,9 @@
 
 (def ^:dynamic *options*)
 
+(defn- verbosity []
+  (or (:verbose *options*) 0))
+
 (defn file-name [f]
   (.getName (io/as-file f)))
 
@@ -168,9 +171,6 @@
 (defn write-note-to-stream [note out]
   (binding [*out* out]
     (print (:converted note))))
-
-(defn- verbosity []
-  (or (:verbose *options*) 0))
 
 (defn read-archive [file]
   (->> file
