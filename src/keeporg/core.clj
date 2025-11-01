@@ -90,15 +90,15 @@
   (jt/instant (quot usec 1000)))
 
 (defn- timestamp-usec->org [usec]
-  (str (instant-usec usec))
-  #_(jt/format :iso-date-time
-             (jt/zoned-date-time (instant-usec usec) (jt/zone-id))))
+  (str (instant-usec usec)))
 
-(comment
-  (jt/format (jt/formatter "yyyy-MM-dd") (jt/instant 1724223307269))
-  (jt/format (jt/formatter "yyyy-MM-dd") (jt/zoned-date-time (instant-usec 1724223307269000) (jt/zone-id)))
-  (jt/zoned-date-time (instant-usec 1724223307269000) (jt/zone-id))
-  (timestamp-usec->org 1724223307269000))
+;; It would be ince to include the annotations.  Example:
+;; :annotations
+;; [{:description "",
+;;   :source "WEBLINK",
+;;   :title "- YouTube",
+;;   :url
+;;   "https://www.youtube.com/shorts/LR3RwzSVmQc?si=tinv-okV42EPRjVg"}],
 
 (defn- format-properties [note]
   (str ":PROPERTIES:\n"
@@ -113,12 +113,6 @@
        (when (:user-edited-timestamp-usec note)
          ;; 1724223307269000
          (str "EDITED: " (timestamp-usec->org (:user-edited-timestamp-usec note)) "\n"))
-       ;; :annotations
-       ;; [{:description "",
-       ;;   :source "WEBLINK",
-       ;;   :title "- YouTube",
-       ;;   :url
-       ;;   "https://www.youtube.com/shorts/LR3RwzSVmQc?si=tinv-okV42EPRjVg"}],
        ":END:\n"))
 
 (defn make-note->org [heading-level]
