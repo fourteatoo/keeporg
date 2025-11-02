@@ -10,7 +10,7 @@
                  [org.clojure/tools.cli "1.2.245"]
                  [clojure.java-time "1.4.3"]
                  [cheshire "6.1.0"]]
-  :main ^:skip-aot keeporg.core
+  :main ^:skip-aot fourteatoo.keeporg.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
                        :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
