@@ -193,12 +193,12 @@
   (System/exit -1))
 
 (def ^:private cli-options
-  [["-m" "--markdown" "output Markdown files instead of Emacs org"]
-   ["-s" "--split" "write notes each in its own file"]
-   ["-v" "--verbose" "increase logging verbosity"
+  [["-m" "--markdown" "output Markdown instead of Emacs org"]
+   ["-s" "--split" "write each note in separate file"]
+   ["-v" "--verbose" "increase verbosity"
     :default 0
     :update-fn inc]
-   ["-h" "--help" "Show program usage"]])
+   ["-h" "--help" "show program usage"]])
 
 (defn- parse-cli [args]
   (let [{:keys [arguments options summary errors] :as result} (parse-opts args cli-options)]
