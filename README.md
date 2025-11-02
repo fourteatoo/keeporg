@@ -20,7 +20,7 @@ To compile
 
 	$ java -jar target/keeporg<version_number>-standalone.jar takeout_file ...
 
-to convert your takeout files (only .tgz files at the moment).
+to convert your takeout files.
 
 ## Options
 
