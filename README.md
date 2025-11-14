@@ -1,5 +1,3 @@
-[![Clojars Project](https://img.shields.io/clojars/v/io.github.fourteatoo/keeporg.svg?include_prereleases)](https://clojars.org/io.github.fourteatoo/keeporg)
-[![cljdoc badge](https://cljdoc.org/badge/io.github.fourteatoo/keeporg)](https://cljdoc.org/d/io.github.fourteatoo/keeporg)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fourteatoo/keeporg/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fourteatoo/keeporg/tree/main)
 [![Coverage Status](https://coveralls.io/repos/github/fourteatoo/keeporg/badge.svg)](https://coveralls.io/github/fourteatoo/keeporg)
 
