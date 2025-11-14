@@ -24,7 +24,15 @@ to convert your takeout files.
 
 	$ java -jar target/keeporg<version_number>-standalone.jar -h
 	
-will get you a short usage print
+will show you a short usage
+
+```
+usage: keeporg [option ...] file ...
+  -m, --markdown     output Markdown instead of Emacs org
+  -s, --split        write each note in separate file
+  -v, --verbose   0  increase verbosity
+  -h, --help         show program usage
+```
 
 ## Examples
 
