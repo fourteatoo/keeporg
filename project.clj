@@ -13,4 +13,14 @@
   :main ^:skip-aot fourteatoo.keeporg.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
+  ;; don't deploy on Clojars; this is not a library!
+  :deploy-repositories ^:replace [["releases" :no-op] ["snapshots" :no-op]]
+  :release-tasks ^:replace [["vcs" "assert-committed"]
+                            ["change" "version" "leiningen.release/bump-version" "release"]
+                            ["vcs" "commit"]
+                            ["vcs" "tag" "v" "--no-sign"]
+                            ;; ["deploy"]
+                            ["change" "version" "leiningen.release/bump-version"]
+                            ["vcs" "commit"]
+                            ["vcs" "push"]])
